@@ -1,0 +1,2 @@
+Customer Details,
+Clothing Details

@@ -4,21 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link href="images/logo-icon.png" rel="shortcut icon" type="image/png">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link href="images/logo-icon.png" rel="shortcut icon" type="image/png" />
     <title>PackBill</title>
-    <link href="css/app.css?v=666" rel="stylesheet" type="text/css">
-    <meta property="og:title" content="Industrial Automation">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="packbill.com">
-    <meta property="og:site_name" content="Manufacturer">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="Manufacturer">
+    <link href="css/app.css?v=666" rel="stylesheet" type="text/css" />
+    <meta property="og:title" content="Industrial Automation" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="packbill.com"/>
+    <meta property="og:site_name" content="Manufacturer"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="Manufacturer" />
     <script>let _;</script>
-    <meta name="description" content="PackBill | Sign-in with your login-credentials.">
-</head>
+    <meta name="description" content="PackBill | Sign-in with your login-credentials."/>
+
     <style>
     .login-wrap {
         display: block;
@@ -58,12 +58,13 @@
             margin: 0 auto;
         }
 </style>
+    </head>
 <body>
     <form id="form1" runat="server">
         <div class="body-wrap">        
             <nav class="nav-top" role="navigation">
                 <a href="https://eolpackworld.com" target="_blank" class="ico-logo">
-                    <img src="images/logoa.png" id="milogoa"><img src="images/logob.png" id="milogob">
+                    <img src="images/logoa.png" id="milogoa"/><img src="images/logob.png" id="milogob"/>
                 </a>
                 <div>
                     <a id="maUName" tabindex="0"><i class="ico-uname"></i>Sign In</a>
@@ -79,15 +80,14 @@
                         <h2 style="text-align:center;padding:10px;">User Login</h2>
                         <div class="eg-wrap lab-w200 xx-12" style="padding:30px;">
                             <div>
-                                <asp:TextBox runat="server" type="text" ID="TUID" placeholder="- User-id -" ></asp:TextBox>
+                                <asp:TextBox runat="server"  ID="TUID" placeholder="- User-id -" ></asp:TextBox>
                             </div>
                             <div>
-                                <asp:TextBox runat="server" type="password" ID="TPW" placeholder="- Password -" ></asp:TextBox>
+                                <asp:TextBox runat="server" TextMode="Password" ID="TPW" placeholder="- Password -" ></asp:TextBox>
                             </div>
                         </div>
                         <div class="f-bt-h-w">
-                            <button id="button_click" onclick="button_click()" type="submit" name="submitButton" class="bti-sb">Submit</button>
-                            <input name="m$mc$tPM" type="text" id="inp" class="d0"/>
+                            <asp:Button ID="button_click" runat="server" OnClick="insert_btn" class="bti-sb" Text="Submit"  />
                         </div>  
                         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                     </div>

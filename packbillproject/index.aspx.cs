@@ -11,26 +11,41 @@ namespace packbillproject
         {
         }
 
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
+        //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["packbil"].ConnectionString);
 
-        public void button_click(object sender, EventArgs e)
+
+
+        public void insert_btn(object sender, EventArgs e)
         {
-            try
+            if (string.IsNullOrEmpty(TUID.Text) || string.IsNullOrEmpty(TPW.Text))
             {
-                conn.Open();
-                string command = "INSERT INTO [tbs].[userlogin]([username], [passwordkey]) VALUES(@username, @password)";
-                SqlCommand cmd = new SqlCommand(command, conn);
-                cmd.Parameters.AddWithValue("@username", TUID.Text);
-                cmd.Parameters.AddWithValue("@password", TPW.Text);
-                cmd.ExecuteNonQuery();
-                Label1.Text = "Data Saved";
-                conn.Close();
-                Response.Redirect("Details.aspx");
+                Label1.Text = "Username or Password cannot be empty.";
+                return;
             }
-            catch (SqlException ex)
-            {
-                Response.Write(ex.ToString());
-            }
+
+            string command = "INSERT INTO userlogin ([username], [passwordkey]) VALUES(@username, @password)";
+
+           
+                using (SqlCommand cmd = new SqlCommand(command, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", TUID.Text);
+                    cmd.Parameters.AddWithValue("@password", TPW.Text);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        Label1.Text = "Data Saved";
+                        conn.Close();
+                        Response.Redirect("Detailsa.aspx");
+                    }
+                    catch (SqlException ex)
+                    {
+                        Label1.Text = "Error: " + ex.Message;
+                    }
+                }
+            
         }
     }
 }
